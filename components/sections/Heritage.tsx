@@ -2,24 +2,37 @@
 
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { MithilaWoman } from '../mithila/MithilaWoman';
-import { MithilaBorder } from '../mithila/MithilaBorder';
+import { MithilaHarvestScene } from '../mithila/MithilaHarvestScene';
+import { MithilaRoastScene } from '../mithila/MithilaRoastScene';
+import { MithilaPackScene } from '../mithila/MithilaPackScene';
+
+const panels = [
+  { label: 'कमल तालाब से तोड़ाई', sublabel: 'Harvested from lotus ponds', Component: MithilaHarvestScene },
+  { label: 'लकड़ी की आँच पर भुनाई', sublabel: 'Roasted over wood fire', Component: MithilaRoastScene },
+  { label: 'हाथों से सजाकर पैकिंग', sublabel: 'Hand-packed with love', Component: MithilaPackScene },
+];
 
 export function Heritage() {
   const prefersReducedMotion = useReducedMotion();
 
-  const wipeVariants = {
-    hidden: { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
-    visible: { 
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-      transition: { duration: 1.2, ease: "easeInOut" as const }
-    }
-  };
-
   const staggerVariants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.3 } }
+    visible: { transition: { staggerChildren: 0.25 } }
   };
+
+  const panelVariants = prefersReducedMotion
+    ? {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.4 } }
+      }
+    : {
+        hidden: { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)", opacity: 0 },
+        visible: {
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          opacity: 1,
+          transition: { duration: 1, ease: "easeInOut" as const }
+        }
+      };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -27,111 +40,115 @@ export function Heritage() {
   };
 
   return (
-    <section id="heritage" className="bg-mithila-crimson text-mithila-ivory py-24 border-y-4 border-mithila-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
-        {/* Left: Mithila Art Panel */}
-        <motion.div 
-          className="w-full flex flex-col gap-4"
+    <section id="heritage" className="bg-mithila-crimson text-mithila-ivory py-24 lg:py-32 border-y-4 border-mithila-ink overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        {/* Left: Mithila Art Panels */}
+        <motion.div
+          className="w-full flex flex-col gap-5"
           variants={staggerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
         >
-          {/* Panel A: Harvesting */}
-          <motion.div variants={prefersReducedMotion ? itemVariants : wipeVariants} className="relative h-[250px] bg-mithila-ivory border-4 border-mithila-ink overflow-hidden flex items-center justify-center">
-            {/* Geometric Divider Top */}
-            <div className="absolute top-0 w-full h-4 bg-mithila-ochre border-b-2 border-mithila-ink flex items-center justify-around overflow-hidden">
-              {[...Array(10)].map((_, i) => <div key={i} className="w-2 h-2 bg-mithila-ink rotate-45"></div>)}
-            </div>
-            
-            <svg viewBox="0 0 400 200" className="w-full h-full absolute inset-0">
-              <rect y="120" width="400" height="80" fill="var(--color-mithila-sky)" opacity="0.4" />
-              <MithilaWoman x="50" y="50" width="100" height="150" />
-              <MithilaWoman x="250" y="50" width="100" height="150" transform="scale(-1, 1) translate(-600, 0)" />
-              <circle cx="200" cy="80" r="30" fill="var(--color-mithila-lotus)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-            </svg>
+          {panels.map(({ label, sublabel, Component }, idx) => (
+            <motion.div
+              key={idx}
+              variants={panelVariants}
+              className="relative bg-mithila-ivory border-4 border-mithila-ink overflow-hidden group"
+            >
+              {/* Top geometric divider */}
+              <div className="w-full h-4 bg-mithila-ochre border-b-2 border-mithila-ink flex items-center justify-around overflow-hidden">
+                {[...Array(12)].map((_, i) => <div key={i} className="w-2 h-2 bg-mithila-ink rotate-45"></div>)}
+              </div>
 
-            {/* Geometric Divider Bottom */}
-            <div className="absolute bottom-0 w-full h-4 bg-mithila-ochre border-t-2 border-mithila-ink flex items-center justify-around overflow-hidden">
-              {[...Array(10)].map((_, i) => <div key={i} className="w-2 h-2 bg-mithila-ink rotate-45"></div>)}
-            </div>
-          </motion.div>
+              {/* Scene */}
+              <div className="w-full aspect-[2/1]">
+                <Component className="w-full h-full" />
+              </div>
 
-          {/* Panel B: Roasting */}
-          <motion.div variants={prefersReducedMotion ? itemVariants : wipeVariants} className="relative h-[250px] bg-mithila-ivory border-4 border-mithila-ink overflow-hidden flex items-center justify-center">
-            <svg viewBox="0 0 400 200" className="w-full h-full absolute inset-0">
-              {/* Fire */}
-              <path d="M180 150 Q200 100 220 150 Z" fill="var(--color-mithila-crimson)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <path d="M190 150 Q200 120 210 150 Z" fill="var(--color-mithila-mango)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              {/* Clay Pot */}
-              <path d="M170 120 C170 160, 230 160, 230 120 L210 100 L190 100 Z" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <MithilaWoman x="80" y="50" width="100" height="150" />
-            </svg>
-            <div className="absolute bottom-0 w-full h-4 bg-mithila-ochre border-t-2 border-mithila-ink flex items-center justify-around overflow-hidden">
-              {[...Array(10)].map((_, i) => <div key={i} className="w-2 h-2 bg-mithila-ink rotate-45"></div>)}
-            </div>
-          </motion.div>
-
-          {/* Panel C: Family */}
-          <motion.div variants={prefersReducedMotion ? itemVariants : wipeVariants} className="relative h-[250px] bg-mithila-ivory border-4 border-mithila-ink overflow-hidden flex items-center justify-center">
-            <svg viewBox="0 0 400 200" className="w-full h-full absolute inset-0">
-              <path d="M150 150 C150 100, 250 100, 250 150 Z" fill="var(--color-mithila-sapphire)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              {/* Figures eating */}
-              <circle cx="170" cy="110" r="20" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <circle cx="230" cy="110" r="20" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <circle cx="200" cy="160" r="25" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-            </svg>
-          </motion.div>
-
+              {/* Bottom band with label */}
+              <div className="w-full bg-mithila-ink/90 border-t-2 border-mithila-ink px-4 py-2.5 flex items-center gap-3">
+                <span className="font-display text-mithila-gold text-sm lg:text-base tracking-wide">{label}</span>
+                <span className="text-mithila-ivory/50 text-xs font-body italic hidden sm:inline">— {sublabel}</span>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Right: Heritage Copy */}
-        <motion.div 
+        <motion.div
           className="flex flex-col justify-center"
           variants={staggerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.blockquote variants={itemVariants} className="font-display italic text-4xl lg:text-5xl leading-tight text-mithila-ivory mb-6">
-            "मखाना केवल एक स्नैक नहीं है — यह मिथिला की आत्मा है।"
-          </motion.blockquote>
-          <motion.p variants={itemVariants} className="font-body text-xl text-mithila-gold mb-16">
-            — A Mithila Farmer, Bihar
-          </motion.p>
-
-          {/* Timeline */}
-          <motion.div variants={itemVariants} className="relative flex justify-between items-center mb-16">
-            {/* Lotus Vine SVG Line */}
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-mithila-ink/30 -translate-y-1/2 pointer-events-none">
-              <svg className="w-full h-[20px] absolute top-1/2 -translate-y-1/2" preserveAspectRatio="none">
-                <path d="M0 10 Q25 0 50 10 T100 10 T150 10 T200 10 T250 10 T300 10 T350 10 T400 10 T450 10 T500 10" fill="none" stroke="var(--color-mithila-gold)" strokeWidth="2" />
-              </svg>
-            </div>
-
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-mithila-ink border-2 border-mithila-gold flex items-center justify-center text-mithila-ivory font-accent text-xs p-2 text-center">Harvest</div>
-            </div>
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-mithila-ink border-2 border-mithila-gold flex items-center justify-center text-mithila-ivory font-accent text-xs p-2 text-center">Roast</div>
-            </div>
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-mithila-ink border-2 border-mithila-gold flex items-center justify-center text-mithila-ivory font-accent text-xs p-2 text-center">Pack</div>
-            </div>
+          {/* Quote */}
+          <motion.div variants={itemVariants} className="mb-10">
+            <svg viewBox="0 0 24 24" className="w-8 h-8 text-mithila-gold mb-4" fill="currentColor">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <blockquote className="font-display italic text-3xl lg:text-5xl leading-snug text-mithila-ivory mb-5">
+              &ldquo;हमारे बाप-दादा कहते थे — जब तालाब में कमल खिले, तो मखाना अपने आप आएगा। बस धीरज रखो।&rdquo;
+            </blockquote>
+            <p className="font-subheading text-lg text-mithila-gold/90 italic">
+              &ldquo;Our forefathers used to say — when the lotus blooms in the pond, the makhana will come on its own. Just have patience.&rdquo;
+            </p>
+            <p className="font-body text-base text-mithila-ivory/60 mt-3">
+              — रामनाथ मांझी, मखाना किसान, दरभंगा
+            </p>
           </motion.div>
 
-          {/* Badges */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-8">
-            <div className="bg-mithila-ink text-mithila-gold px-4 py-2 border-2 border-mithila-gold font-accent text-sm tracking-wider uppercase">
-              GI Protected Ingredient
-            </div>
-            <div className="bg-mithila-ink text-mithila-gold px-4 py-2 border-2 border-mithila-gold font-accent text-sm tracking-wider uppercase">
-              Women-Led Cooperative
-            </div>
-            <div className="bg-mithila-ink text-mithila-gold px-4 py-2 border-2 border-mithila-gold font-accent text-sm tracking-wider uppercase">
-              Zero Preservatives
-            </div>
+          {/* Journey Timeline — fixed connected thread */}
+          <motion.div variants={itemVariants} className="relative flex items-center justify-between mb-14">
+            {/* Continuous connecting vine — SVG across full width */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 40">
+              {/* Base thread */}
+              <path d="M8 20 L92 20" stroke="var(--color-mithila-gold)" strokeWidth="0.6" opacity="0.5" />
+              {/* Decorative vine wave */}
+              <path
+                d="M8 20 Q15 12 22 20 T36 20 T50 20 T64 20 T78 20 T92 20"
+                fill="none"
+                stroke="var(--color-mithila-gold)"
+                strokeWidth="0.8"
+              />
+              {/* Small leaf accents along vine */}
+              <path d="M22 20 Q24 16 26 18" fill="none" stroke="var(--color-mithila-gold)" strokeWidth="0.5" opacity="0.6" />
+              <path d="M36 20 Q38 24 40 22" fill="none" stroke="var(--color-mithila-gold)" strokeWidth="0.5" opacity="0.6" />
+              <path d="M64 20 Q66 16 68 18" fill="none" stroke="var(--color-mithila-gold)" strokeWidth="0.5" opacity="0.6" />
+              <path d="M78 20 Q80 24 82 22" fill="none" stroke="var(--color-mithila-gold)" strokeWidth="0.5" opacity="0.6" />
+            </svg>
+
+            {/* Step nodes */}
+            {[
+              { label: 'Harvest', hindi: 'तोड़ाई' },
+              { label: 'Roast', hindi: 'भुनाई' },
+              { label: 'Pack', hindi: 'पैकिंग' },
+            ].map((step, idx) => (
+              <div key={idx} className="relative z-10 flex flex-col items-center gap-2">
+                <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-mithila-ink border-2 border-mithila-gold flex flex-col items-center justify-center text-center shadow-[0_0_12px_rgba(212,160,23,0.2)]">
+                  <span className="text-mithila-ivory font-accent text-[10px] lg:text-xs uppercase tracking-wider mt-0.5">{step.label}</span>
+                </div>
+                <span className="font-display text-mithila-gold/80 text-xs lg:text-sm">{step.hindi}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Trust Badges */}
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
+            {[
+              { text: 'GI Protected Ingredient'},
+              { text: 'Women-Led Cooperative'},
+              { text: 'Zero Preservatives'},
+            ].map((badge, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-2 bg-mithila-ink/80 text-mithila-gold px-4 py-2.5 border border-mithila-gold/60 font-accent text-xs lg:text-sm tracking-wider uppercase backdrop-blur-sm hover:bg-mithila-ink hover:border-mithila-gold transition-colors duration-300"
+              >
+                {badge.text}
+              </div>
+            ))}
           </motion.div>
 
         </motion.div>
