@@ -17,7 +17,6 @@ export function MarqueeStrip() {
     "Premium Gift Boxes"
   ];
   
-  // Create a continuous array by repeating categories
   const items = [...categories, ...categories, ...categories];
 
   return (
@@ -29,7 +28,6 @@ export function MarqueeStrip() {
         style={{ display: "flex", width: "max-content" }}
       >
         {items.map((item, idx) => {
-          // Alternate icons
           const Icon = idx % 2 === 0 ? MithilaFish : MithilaLotus;
           
           return (

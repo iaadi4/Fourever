@@ -33,9 +33,7 @@ export function Footer() {
 
   return (
     <footer className="bg-mithila-ink text-mithila-ivory pt-8 pb-12 relative border-t-2 border-mithila-gold">
-      {/* Footer Top Ornate Border Strip (Peacock Variant Equivalent) */}
       <div className="w-full h-16 bg-mithila-sapphire flex items-center mb-16 overflow-hidden relative border-y border-mithila-ivory">
-        {/* Using absolute positioning and SVGs for a continuous pattern effect */}
         <div className="flex w-[200%] md:w-full justify-between items-center px-4 absolute inset-0">
           {[...Array(12)].map((_, i) => (
             <div
@@ -71,7 +69,6 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-          {/* Brand Column */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <MithilaLotus
@@ -91,7 +88,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Products Column */}
           {linkSection("Products", [
             "Classic Roasted",
             "Himalayan Pink Salt",
@@ -101,7 +97,6 @@ export function Footer() {
             "Royal Gift Boxes",
           ])}
 
-          {/* Company Column */}
           {linkSection("Company", [
             "Our Story",
             "The Mithila Heritage",
@@ -110,7 +105,6 @@ export function Footer() {
             "Contact Us",
           ])}
 
-          {/* Follow Us Column */}
           {linkSection("Follow Us", [
             "Instagram",
             "Facebook",
@@ -119,7 +113,6 @@ export function Footer() {
           ])}
         </div>
 
-        {/* Footer Bottom */}
         <div className="pt-8 border-t border-mithila-gold/30 text-center flex flex-col items-center gap-4">
           <MithilaLotus
             className="w-8 h-8"

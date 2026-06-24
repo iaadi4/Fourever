@@ -53,7 +53,6 @@ export function WhyMakhana() {
 
   return (
     <section className="bg-mithila-ivory py-24 flex">
-      {/* Visual background split: 30% ochre, 70% ivory */}
       <div className="absolute left-0 top-0 bottom-0 w-[30%] bg-mithila-ochre/10 pointer-events-none hidden lg:block"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">

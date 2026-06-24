@@ -32,7 +32,6 @@ export function MithilaPeacock({
 
   return (
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className={className} {...props}>
-      {/* Tail Feathers (Fanned out) */}
       <motion.path
         d="M50 60 C10 60, 0 10, 50 5 C100 10, 90 60, 50 60 Z"
         fill="var(--color-mithila-leaf)"
@@ -40,7 +39,6 @@ export function MithilaPeacock({
         strokeWidth="2"
         {...pathProps}
       />
-      {/* Feather patterns (eyes) */}
       {[20, 35, 50, 65, 80].map((x, i) => (
         <React.Fragment key={`feather-${i}`}>
           <motion.circle cx={x} cy={20 + Math.abs(50-x)*0.3} r="6" fill="var(--color-mithila-gold)" stroke={outlineColor} strokeWidth="1.5" {...pathProps} />
@@ -54,7 +52,6 @@ export function MithilaPeacock({
         </React.Fragment>
       ))}
       
-      {/* Body */}
       <motion.path
         d="M50 60 C30 65, 30 90, 50 95 C70 90, 70 65, 50 60 Z"
         fill={color}
@@ -63,7 +60,6 @@ export function MithilaPeacock({
         {...pathProps}
       />
       
-      {/* Neck & Head */}
       <motion.path
         d="M55 70 Q75 60 85 45 Q90 35 85 30 Q75 30 75 40 Q65 60 50 70"
         fill={color}
@@ -72,7 +68,6 @@ export function MithilaPeacock({
         {...pathProps}
       />
       
-      {/* Beak */}
       <motion.path
         d="M85 32 L95 35 L86 38 Z"
         fill="var(--color-mithila-mango)"
@@ -81,17 +76,14 @@ export function MithilaPeacock({
         {...pathProps}
       />
       
-      {/* Eye */}
       <motion.circle cx="82" cy="35" r="2" fill="var(--color-mithila-ivory)" stroke={outlineColor} strokeWidth="1" {...pathProps} />
       <motion.circle cx="83" cy="35" r="0.8" fill={outlineColor} {...pathProps} />
       
-      {/* Crest (Crown) */}
       <motion.path d="M80 30 L75 20 M83 28 L80 18 M86 29 L85 20" stroke={outlineColor} strokeWidth="1.5" {...pathProps} />
       <motion.circle cx="75" cy="20" r="1.5" fill="var(--color-mithila-gold)" {...pathProps} />
       <motion.circle cx="80" cy="18" r="1.5" fill="var(--color-mithila-gold)" {...pathProps} />
       <motion.circle cx="85" cy="20" r="1.5" fill="var(--color-mithila-gold)" {...pathProps} />
       
-      {/* Legs */}
       <motion.path d="M45 95 L40 105 M55 95 L60 105" stroke={outlineColor} strokeWidth="2" fill="none" {...pathProps} />
       <motion.path d="M38 105 L42 105 M58 105 L62 105" stroke={outlineColor} strokeWidth="2" fill="none" {...pathProps} />
     </svg>

@@ -21,7 +21,6 @@ export function Collection() {
 
   return (
     <section id="collection" className="relative py-24 bg-mithila-ivory">
-      {/* Subtle SVG Background Pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden="true">
         <svg width="100%" height="100%">
           <defs>

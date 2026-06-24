@@ -33,7 +33,6 @@ export function Gifting() {
 
   return (
     <section className="bg-mithila-sapphire py-24 border-y-[6px] border-mithila-gold relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-center items-center">
         <svg viewBox="0 0 100 100" className="w-[150vw] h-[150vw] absolute">
            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--color-mithila-gold)" strokeWidth="0.5" strokeDasharray="2 2" />
@@ -48,7 +47,6 @@ export function Gifting() {
         </p>
       </div>
 
-      {/* Horizontal Carousel */}
       <div className="w-full relative z-10 overflow-x-hidden cursor-grab active:cursor-grabbing pb-12">
         <motion.div 
           ref={carouselRef}
@@ -58,14 +56,10 @@ export function Gifting() {
         >
           {boxes.map((box, idx) => (
             <div key={idx} className="w-[300px] md:w-[400px] shrink-0 bg-mithila-ivory border-4 border-mithila-ink p-4 group">
-              {/* Box Artwork SVG */}
               <div className="w-full aspect-[4/3] bg-mithila-ink mb-6 relative overflow-hidden border-2 border-mithila-ink">
-                {/* The Box Body */}
                 <div className="absolute inset-0 bg-mithila-crimson" style={{ backgroundColor: box.color }}>
-                  {/* Decorative Border */}
                   <div className="absolute inset-2 border border-mithila-gold/50 border-dashed"></div>
                   
-                  {/* Mock Art on Box */}
                   <div className="absolute inset-0 flex items-center justify-center p-6">
                     {box.pattern === 'peacock' && (
                        <svg viewBox="0 0 100 100" className="w-full h-full opacity-80">
@@ -89,21 +83,17 @@ export function Gifting() {
                   </div>
                 </div>
 
-                {/* Ribbon */}
                 <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-mithila-gold border-x border-mithila-ink shadow-lg"></div>
                 <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-8 bg-mithila-gold border-y border-mithila-ink shadow-lg"></div>
 
-                {/* Badge */}
                 <div className="absolute top-4 left-4 bg-mithila-ink text-mithila-gold font-accent text-xs px-3 py-1 tracking-wider border border-mithila-gold uppercase">
                   Limited Edition
                 </div>
               </div>
 
-              {/* Box Details */}
               <div className="text-center">
                 <h3 className="font-accent text-2xl text-mithila-ink mb-3">{box.name}</h3>
                 
-                {/* Occasions */}
                 <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
                   {box.occasions.map((occ, i) => (
                     <React.Fragment key={i}>

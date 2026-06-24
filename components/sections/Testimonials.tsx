@@ -23,7 +23,6 @@ export function Testimonials() {
           <h2 className="font-display text-4xl lg:text-6xl text-mithila-ink mb-4">Voices from the Court</h2>
         </div>
 
-        {/* The Unfurled Scroll container */}
         <motion.div 
           className="relative w-full min-h-[400px] flex items-center justify-center"
           initial={prefersReducedMotion ? { opacity: 0 } : { x: "100%", opacity: 0 }}
@@ -31,21 +30,15 @@ export function Testimonials() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.2, ease: "easeOut" as const }}
         >
-          {/* SVG Scroll Background */}
           <div className="absolute inset-0 z-0 pointer-events-none drop-shadow-2xl">
             <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 400">
-              {/* Scroll paper */}
               <path d="M50 50 C100 40, 900 40, 950 50 L950 350 C900 360, 100 360, 50 350 Z" fill="var(--color-mithila-ivory)" stroke="var(--color-mithila-ink)" strokeWidth="4" />
-              {/* Left scroll roll */}
               <ellipse cx="50" cy="200" rx="30" ry="150" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="4" />
               <path d="M50 50 C20 50, 20 350, 50 350" fill="none" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              {/* Right scroll roll */}
               <ellipse cx="950" cy="200" rx="40" ry="160" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="4" />
               <path d="M950 40 C980 40, 980 360, 950 360" fill="none" stroke="var(--color-mithila-ink)" strokeWidth="2" />
               
-              {/* Inner Decorative Border */}
               <path d="M100 80 L900 80 L900 320 L100 320 Z" fill="none" stroke="var(--color-mithila-crimson)" strokeWidth="2" strokeDasharray="10 5" />
-              {/* Corner Lotuses */}
               <circle cx="100" cy="80" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
               <circle cx="900" cy="80" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
               <circle cx="100" cy="320" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
@@ -53,7 +46,6 @@ export function Testimonials() {
             </svg>
           </div>
 
-          {/* Testimonial Content */}
           <div className="relative z-10 w-full px-12 md:px-32 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
             {testimonials.map((test, idx) => (
               <div key={idx} className="flex flex-col justify-center items-center text-center">

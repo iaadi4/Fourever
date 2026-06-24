@@ -10,7 +10,6 @@ import { MithilaSunFace } from '../mithila/MithilaSunFace';
 import { MithilaBorder } from '../mithila/MithilaBorder';
 
 export function Hero() {
-  // Set up scroll-linked parallax effect for the hero illustration
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -19,7 +18,6 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
-  // Define staggered entry animations for text elements on load
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
@@ -32,7 +30,6 @@ export function Hero() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-mithila-ivory pt-20 overflow-hidden flex flex-col lg:flex-row">
-      {/* Illustration layer: Parallax wrapper containing the composite Mithila art scene */}
       <motion.div 
         className="w-full lg:w-[60%] h-[60vh] lg:h-auto relative border-b-4 lg:border-b-0 lg:border-r-4 border-mithila-ink"
         style={prefersReducedMotion ? {} : { y }}
@@ -80,7 +77,6 @@ export function Hero() {
         </svg>
       </motion.div>
 
-      {/* Content layer: Orchestrates staggered entry animations when the hero section mounts */}
       <motion.div 
         className="w-full lg:w-[40%] flex flex-col justify-center p-8 lg:p-16 z-10"
         variants={containerVariants}

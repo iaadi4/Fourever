@@ -9,7 +9,6 @@ export function CTA() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden border-b-[8px] border-mithila-gold">
-      {/* Background Gradient */}
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -17,7 +16,6 @@ export function CTA() {
         }}
       ></div>
 
-      {/* Enormous Ghost Lotus */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
         <motion.div
           animate={prefersReducedMotion ? {} : { rotate: 360 }}
