@@ -50,10 +50,10 @@ export function Gifting() {
       <div className="w-full relative z-10 pb-12">
         <motion.div 
           ref={carouselRef}
-          className="flex flex-wrap justify-center items-center gap-8 px-4 lg:px-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 lg:px-8 max-w-7xl mx-auto justify-items-center"
         >
           {boxes.map((box, idx) => (
-            <div key={idx} className="w-[300px] md:w-[400px] shrink-0 bg-mithila-ivory border-4 border-mithila-ink p-4 group">
+            <div key={idx} className="w-full max-w-[400px] shrink-0 bg-mithila-ivory border-4 border-mithila-ink p-4 group">
               <div className="w-full aspect-[4/3] bg-mithila-ink mb-6 relative overflow-hidden border-2 border-mithila-ink">
                 <div className="absolute inset-0 bg-mithila-crimson" style={{ backgroundColor: box.color }}>
                   <div className="absolute inset-2 border border-mithila-gold/50 border-dashed"></div>

@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fourever Makhana
 
-## Getting Started
+A premium, culturally-immersive e-commerce landing page for authentic, handcrafted Foxnuts (Makhana) from Bihar. 
 
-First, run the development server:
+![Fourever Makhana Screenshot](./screenshot.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Fourever Makhana blends modern web performance with traditional Indian art. The entire user interface, from the scrolling marquees to the custom interactive mouse cursors, is heavily inspired by **Mithila (Madhubani) Painting**. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was built with a strong focus on:
+- **Visual Excellence**: Custom geometric SVGs, rich color palettes (`mithila-ivory`, `mithila-ink`, `mithila-crimson`), and unique visual storytelling.
+- **Performance**: Heavy, animated SVG scenes were manually optimized to pure SVG paths to completely eliminate React hydration overhead (FOUC) and maximize time-to-first-paint.
+- **Micro-interactions**: Custom Base64 SVG cursors (including a blooming lotus pointer) and a heavily themed, diagonally-striped native CSS scrollbar.
+- **Responsive Design**: Complex layouts like the geometric scroll handles on the Testimonial cards dynamically adapt from ultra-wide desktop monitors to narrow mobile screens without distortion.
