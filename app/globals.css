@@ -146,3 +146,49 @@
     height: 100%;
   }
 }
+
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #8B1A1A #F5EDD6;
+}
+
+body, .cursor-default, .cursor-auto, .cursor-grab, .cursor-grabbing, [class*="cursor-grab"], [style*="cursor: grab"], [style*="cursor: grabbing"], [style*="cursor:grab"], [style*="cursor:grabbing"] {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNIDIgMiBMIDEwIDI0IEwgMTQgMTYgTCAyNCAxNCBaIiBmaWxsPSIjRDRBMDE3IiBzdHJva2U9IiMxQzEwMDgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTIiIHI9IjEuNSIgZmlsbD0iIzhCMUExQSIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjIiIHI9IjIuNSIgZmlsbD0iIzhCMUExQSIgc3Ryb2tlPSIjMUMxMDA4IiBzdHJva2Utd2lkdGg9IjEiLz48Y2lyY2xlIGN4PSIyNiIgY3k9IjI4IiByPSIxLjUiIGZpbGw9IiNGNUVERDYiIHN0cm9rZT0iIzFDMTAwOCIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+") 2 2, auto !important;
+}
+
+a, button, [role="button"], input[type="submit"], input[type="reset"], input[type="button"], label[for], select, summary, .cursor-pointer, [class*="cursor-pointer"] {
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNIDE2IDQgQyAxNiA0LCAxMCAxNiwgMTYgMjYgQyAyMiAxNiwgMTYgNCwgMTYgNCBaIiBmaWxsPSIjOEIxQTFBIiBzdHJva2U9IiMxQzEwMDgiIHN0cm9rZS13aWR0aD0iMS41IiAvPjxwYXRoIGQ9Ik0gMTYgMjYgQyAxMCAyNiwgNCAxOCwgOCAxMiBDIDEyIDE2LCAxNiAyNiwgMTYgMjYgWiIgZmlsbD0iI0M4Nzk0MSIgc3Ryb2tlPSIjMUMxMDA4IiBzdHJva2Utd2lkdGg9IjEuNSIgLz48cGF0aCBkPSJNIDE2IDI2IEMgMjIgMjYsIDI4IDE4LCAyNCAxMiBDIDIwIDE2LCAxNiAyNiwgMTYgMjYgWiIgZmlsbD0iI0M4Nzk0MSIgc3Ryb2tlPSIjMUMxMDA4IiBzdHJva2Utd2lkdGg9IjEuNSIgLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE4IiByPSIxLjUiIGZpbGw9IiNGNUVERDYiIC8+PC9zdmc+") 16 4, pointer !important;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+  cursor: default !important;
+}
+::-webkit-scrollbar-track {
+  background: #F5EDD6;
+  border-left: 2px solid #1C1008;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #8B1A1A;
+  border: 2px solid #1C1008;
+  background-image: linear-gradient(
+    45deg,
+    #D4A017 25%,
+    transparent 25%,
+    transparent 50%,
+    #D4A017 50%,
+    #D4A017 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 10px 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #C87941;
+}
+::-webkit-scrollbar-corner {
+  background: #1C1008;
+}

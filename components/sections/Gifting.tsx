@@ -47,7 +47,7 @@ export function Gifting() {
         </p>
       </div>
 
-      <div className="w-full relative z-10 overflow-x-hidden cursor-grab active:cursor-grabbing pb-12">
+      <div className="w-full relative z-10 overflow-x-hidden pb-12">
         <motion.div 
           ref={carouselRef}
           className="flex gap-8 px-4 sm:px-8 lg:px-24 w-max mx-auto"
