@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { MithilaWoman } from '../mithila/MithilaWoman';
 import { MithilaFox } from '../mithila/MithilaFox';
@@ -48,10 +48,10 @@ export function Hero() {
             </pattern>
           </defs>
 
-          <rect width="1000" height="1000" fill="url(#dot-pattern)" />
-          <rect width="1000" height="400" fill="url(#crosshatch)" />
+          <rect x="-1000" y="-1000" width="3000" height="3000" fill="url(#dot-pattern)" />
+          <rect x="-1000" y="-1000" width="3000" height="1400" fill="url(#crosshatch)" />
 
-          <MithilaSunFace x="700" y="50" width="200" height="200" drawOn={true} />
+          <MithilaSunFace x="700" y="50" width="200" height="200" />
 
           <g transform="translate(-50, -50)">
             <path d="M200 450 Q220 200 200 50 Q230 100 250 50 L250 450" fill="var(--color-mithila-ink)" />
@@ -61,19 +61,19 @@ export function Hero() {
             ))}
           </g>
 
-          <rect y="400" width="1000" height="600" fill="var(--color-mithila-sky)" opacity="0.2" />
-          <rect y="400" width="1000" height="600" fill="url(#water-waves)" />
+          <rect x="-1000" y="400" width="3000" height="1600" fill="var(--color-mithila-sky)" opacity="0.2" />
+          <rect x="-1000" y="400" width="3000" height="1600" fill="url(#water-waves)" />
 
-          <MithilaFish x="400" y="420" width="150" height="100" drawOn={true} />
-          <MithilaFish x="800" y="600" width="100" height="70" drawOn={true} transform="scale(-1, 1) translate(-1700, 0)" />
-          <MithilaLotus x="50" y="450" width="150" height="150" drawOn={true} />
-          <MithilaLotus x="400" y="550" width="180" height="180" drawOn={true} />
-          <MithilaLotus x="800" y="700" width="200" height="200" drawOn={true} />
+          <MithilaFish x="400" y="420" width="150" height="100" />
+          <MithilaFish x="800" y="600" width="100" height="70" transform="scale(-1, 1) translate(-1700, 0)" />
+          <MithilaLotus x="50" y="450" width="150" height="150" />
+          <MithilaLotus x="400" y="550" width="180" height="180" />
+          <MithilaLotus x="800" y="700" width="200" height="200" />
 
-          <MithilaWoman x="150" y="300" width="300" height="450" drawOn={true} />
-          <MithilaWoman x="550" y="350" width="280" height="420" drawOn={true} transform="scale(-1, 1) translate(-1380, 0)" />
+          <MithilaWoman x="150" y="300" width="300" height="450" />
+          <MithilaWoman x="550" y="350" width="280" height="420" transform="scale(-1, 1) translate(-1380, 0)" />
 
-          <MithilaFox x="250" y="750" width="250" height="150" drawOn={true} />
+          <MithilaFox x="250" y="750" width="250" height="150" />
         </svg>
       </motion.div>
 

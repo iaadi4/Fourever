@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MithilaHarvestScene } from '../mithila/MithilaHarvestScene';
 import { MithilaRoastScene } from '../mithila/MithilaRoastScene';

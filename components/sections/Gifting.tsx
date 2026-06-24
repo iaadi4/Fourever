@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export function Gifting() {
-  const prefersReducedMotion = useReducedMotion();
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const boxes = [
@@ -50,10 +49,10 @@ export function Gifting() {
       <div className="w-full relative z-10 pb-12">
         <motion.div 
           ref={carouselRef}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 lg:px-8 max-w-7xl mx-auto justify-items-center"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 px-2 md:px-4 lg:px-8 max-w-7xl mx-auto justify-items-center"
         >
           {boxes.map((box, idx) => (
-            <div key={idx} className="w-full max-w-[400px] shrink-0 bg-mithila-ivory border-4 border-mithila-ink p-4 group">
+            <div key={idx} className="w-full max-w-[400px] shrink-0 bg-mithila-ivory border-2 md:border-4 border-mithila-ink p-2 md:p-4 group">
               <div className="w-full aspect-[4/3] bg-mithila-ink mb-6 relative overflow-hidden border-2 border-mithila-ink">
                 <div className="absolute inset-0 bg-mithila-crimson" style={{ backgroundColor: box.color }}>
                   <div className="absolute inset-2 border border-mithila-gold/50 border-dashed"></div>
@@ -90,12 +89,12 @@ export function Gifting() {
               </div>
 
               <div className="text-center">
-                <h3 className="font-accent text-2xl text-mithila-ink mb-3">{box.name}</h3>
+                <h3 className="font-accent text-lg md:text-2xl text-mithila-ink mb-1 md:mb-3 leading-tight">{box.name}</h3>
                 
-                <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
+                <div className="flex justify-center items-center gap-1 md:gap-2 mb-2 md:mb-4 flex-wrap">
                   {box.occasions.map((occ, i) => (
                     <React.Fragment key={i}>
-                      <span className="font-subheading italic text-mithila-ochre">{occ}</span>
+                      <span className="font-subheading italic text-[10px] md:text-base text-mithila-ochre">{occ}</span>
                       {i < box.occasions.length - 1 && (
                         <svg viewBox="0 0 10 10" className="w-2 h-2 text-mithila-crimson">
                           <path d="M5 0 L10 5 L5 10 L0 5 Z" fill="currentColor" />
@@ -105,11 +104,11 @@ export function Gifting() {
                   ))}
                 </div>
 
-                <div className="font-display text-3xl text-mithila-crimson font-bold mb-6">
+                <div className="font-display text-xl md:text-3xl text-mithila-crimson font-bold mb-3 md:mb-6 mt-1 md:mt-0">
                   {box.price}
                 </div>
 
-                <button className="w-full bg-mithila-ink text-mithila-gold font-accent uppercase py-4 border-2 border-mithila-ink hover:bg-transparent hover:text-mithila-ink transition-colors">
+                <button className="w-full bg-mithila-ink text-mithila-gold font-accent uppercase py-2 md:py-4 text-[10px] md:text-base border-2 border-mithila-ink hover:bg-transparent hover:text-mithila-ink transition-colors">
                   Enquire Now
                 </button>
               </div>

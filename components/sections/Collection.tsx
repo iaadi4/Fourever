@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 import { MithilaProductCard } from '../mithila/MithilaProductCard';
 
@@ -56,7 +55,7 @@ export function Collection() {
         </div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 lg:gap-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

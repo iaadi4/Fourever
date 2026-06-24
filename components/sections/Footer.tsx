@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
 import { MithilaFish } from "../mithila/MithilaFish";
-import { MithilaBorder } from "../mithila/MithilaBorder";
 import { MithilaLotus } from "../mithila/MithilaLotus";
 
 export function Footer() {

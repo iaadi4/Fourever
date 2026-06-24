@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MithilaLotus } from '../mithila/MithilaLotus';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { Menu } from 'lucide-react';

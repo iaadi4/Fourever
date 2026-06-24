@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const gemPattern = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Crect width='28' height='28' fill='%231C1008'/%3E%3Cpath d='M14 2L26 14L14 26L2 14Z' fill='none' stroke='%23F5EDD6' stroke-width='0.8' opacity='0.25'/%3E%3Cpath d='M14 6Q20 14 14 22Q8 14 14 6Z' fill='%238B1A1A' stroke='%231C1008' stroke-width='1'/%3E%3Ccircle cx='14' cy='14' r='2' fill='%23F5EDD6' opacity='0.12'/%3E%3C/svg%3E")`;

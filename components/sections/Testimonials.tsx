@@ -25,9 +25,9 @@ export function Testimonials() {
 
         <motion.div 
           className="relative w-full max-w-5xl mx-auto mt-12 bg-mithila-ivory border-y-4 border-mithila-ink drop-shadow-2xl"
-          initial={prefersReducedMotion ? { opacity: 0 } : { x: "100%", opacity: 0 }}
-          whileInView={prefersReducedMotion ? { opacity: 1 } : { x: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          initial={prefersReducedMotion ? { opacity: 0 } : { y: 50, opacity: 0 }}
+          whileInView={prefersReducedMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "0px" }}
           transition={{ duration: 1.2, ease: "easeOut" as const }}
         >
           {/* Left Scroll Handle */}

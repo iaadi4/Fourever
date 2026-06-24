@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MithilaBorder } from './MithilaBorder';
 import Image from 'next/image';
 
@@ -20,7 +19,6 @@ interface Props {
 }
 
 export function MithilaProductCard({ product, index }: Props) {
-  const prefersReducedMotion = useReducedMotion();
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -57,21 +55,21 @@ export function MithilaProductCard({ product, index }: Props) {
           </div>
 
           <div className="flex flex-col flex-grow items-center text-center px-2">
-            <h3 className="font-accent text-xl lg:text-2xl text-mithila-ink mb-2 uppercase tracking-wide">
+            <h3 className="font-accent text-base md:text-xl lg:text-2xl text-mithila-ink mb-1 md:mb-2 uppercase tracking-wide line-clamp-2 md:line-clamp-none">
               {product.name}
             </h3>
             
-            <div className="font-subheading text-mithila-ochre italic text-sm mb-4 min-h-[40px]">
+            <div className="font-subheading text-mithila-ochre italic text-xs md:text-sm mb-2 md:mb-4 min-h-[32px] md:min-h-[40px] leading-tight line-clamp-2 md:line-clamp-none">
               {product.flavor}
             </div>
             
             <div className="mt-auto w-full">
-              <div className="flex justify-between items-end mb-4 border-t-2 border-dashed border-mithila-ink/30 pt-4">
-                <span className="font-body text-mithila-ink font-semibold">{product.weight}</span>
-                <span className="font-display text-2xl text-mithila-crimson font-bold">{product.price}</span>
+              <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-3 md:mb-4 border-t-2 border-dashed border-mithila-ink/30 pt-2 md:pt-4 gap-1 md:gap-0">
+                <span className="font-body text-xs md:text-sm text-mithila-ink font-semibold">{product.weight}</span>
+                <span className="font-display text-lg md:text-2xl text-mithila-crimson font-bold leading-none">{product.price}</span>
               </div>
               
-              <button className="w-full relative group/btn overflow-hidden bg-transparent border-2 border-mithila-ink py-3 font-accent uppercase tracking-widest text-mithila-ink hover:text-mithila-ivory transition-colors">
+              <button className="w-full relative group/btn overflow-hidden bg-transparent border-2 border-mithila-ink py-2 md:py-3 text-[10px] md:text-sm font-accent uppercase tracking-widest text-mithila-ink hover:text-mithila-ivory transition-colors">
                 <span className="relative z-10">Add to Cart</span>
                 <div className="absolute inset-0 bg-mithila-ink translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 z-0"></div>
               </button>
