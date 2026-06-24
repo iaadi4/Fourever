@@ -47,12 +47,10 @@ export function Gifting() {
         </p>
       </div>
 
-      <div className="w-full relative z-10 overflow-x-hidden pb-12">
+      <div className="w-full relative z-10 pb-12">
         <motion.div 
           ref={carouselRef}
-          className="flex gap-8 px-4 sm:px-8 lg:px-24 w-max mx-auto"
-          drag="x"
-          dragConstraints={{ right: 0, left: -1000 }} // Note: in real implementation, calculate left dynamically based on content width
+          className="flex flex-wrap justify-center items-center gap-8 px-4 lg:px-8 max-w-7xl mx-auto"
         >
           {boxes.map((box, idx) => (
             <div key={idx} className="w-[300px] md:w-[400px] shrink-0 bg-mithila-ivory border-4 border-mithila-ink p-4 group">

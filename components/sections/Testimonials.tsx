@@ -24,44 +24,46 @@ export function Testimonials() {
         </div>
 
         <motion.div 
-          className="relative w-full min-h-[400px] flex items-center justify-center"
+          className="relative w-full max-w-5xl mx-auto mt-12 bg-mithila-ivory border-y-4 border-mithila-ink drop-shadow-2xl"
           initial={prefersReducedMotion ? { opacity: 0 } : { x: "100%", opacity: 0 }}
           whileInView={prefersReducedMotion ? { opacity: 1 } : { x: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.2, ease: "easeOut" as const }}
         >
-          <div className="absolute inset-0 z-0 pointer-events-none drop-shadow-2xl">
-            <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 400">
-              <path d="M50 50 C100 40, 900 40, 950 50 L950 350 C900 360, 100 360, 50 350 Z" fill="var(--color-mithila-ivory)" stroke="var(--color-mithila-ink)" strokeWidth="4" />
-              <ellipse cx="50" cy="200" rx="30" ry="150" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="4" />
-              <path d="M50 50 C20 50, 20 350, 50 350" fill="none" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <ellipse cx="950" cy="200" rx="40" ry="160" fill="var(--color-mithila-ochre)" stroke="var(--color-mithila-ink)" strokeWidth="4" />
-              <path d="M950 40 C980 40, 980 360, 950 360" fill="none" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              
-              <path d="M100 80 L900 80 L900 320 L100 320 Z" fill="none" stroke="var(--color-mithila-crimson)" strokeWidth="2" strokeDasharray="10 5" />
-              <circle cx="100" cy="80" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <circle cx="900" cy="80" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <circle cx="100" cy="320" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-              <circle cx="900" cy="320" r="10" fill="var(--color-mithila-gold)" stroke="var(--color-mithila-ink)" strokeWidth="2" />
-            </svg>
+          {/* Left Scroll Handle */}
+          <div className="absolute -left-4 md:-left-8 top-[-5%] bottom-[-5%] w-8 md:w-16 bg-mithila-ochre border-4 border-mithila-ink rounded-full drop-shadow-md z-20">
+            <div className="absolute inset-y-8 left-1/2 -translate-x-1/2 w-0.5 bg-mithila-ink opacity-30"></div>
+          </div>
+          
+          {/* Right Scroll Handle */}
+          <div className="absolute -right-4 md:-right-8 top-[-5%] bottom-[-5%] w-8 md:w-16 bg-mithila-ochre border-4 border-mithila-ink rounded-full drop-shadow-md z-20">
+            <div className="absolute inset-y-8 left-1/2 -translate-x-1/2 w-0.5 bg-mithila-ink opacity-30"></div>
           </div>
 
-          <div className="relative z-10 w-full px-12 md:px-32 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+          {/* Inner Dashed Border */}
+          <div className="absolute inset-6 md:inset-8 border-[3px] border-dashed border-mithila-crimson pointer-events-none z-10">
+            <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-mithila-gold border-2 border-mithila-ink" />
+            <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-mithila-gold border-2 border-mithila-ink" />
+            <div className="absolute -bottom-3 -left-3 w-6 h-6 rounded-full bg-mithila-gold border-2 border-mithila-ink" />
+            <div className="absolute -bottom-3 -right-3 w-6 h-6 rounded-full bg-mithila-gold border-2 border-mithila-ink" />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 px-12 md:px-24 py-16 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             {testimonials.map((test, idx) => (
               <div key={idx} className="flex flex-col justify-center items-center text-center">
-                <svg viewBox="0 0 24 24" className="w-8 h-8 text-mithila-gold mb-6" fill="currentColor">
+                <svg viewBox="0 0 24 24" className="w-10 h-10 text-mithila-gold mb-6 shrink-0" fill="currentColor">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p className="font-display italic text-2xl md:text-3xl text-mithila-ink leading-relaxed mb-8">
                   "{test.text}"
                 </p>
-                <span className="font-accent text-mithila-crimson tracking-widest text-lg md:text-xl">
+                <span className="font-accent text-mithila-crimson tracking-widest text-lg md:text-xl uppercase">
                   {test.author}
                 </span>
               </div>
             ))}
           </div>
-
         </motion.div>
       </div>
     </section>
