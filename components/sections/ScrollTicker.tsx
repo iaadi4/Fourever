@@ -6,7 +6,7 @@ import { MithilaPeacock } from '../mithila/MithilaPeacock';
 
 export function ScrollTicker() {
   const prefersReducedMotion = useReducedMotion();
-  const text = "TRADITION • FLAVOR • HERITAGE • 100% NATURAL • PRIDE OF BIHAR • HANDCRAFTED SINCE 2023 •";
+  const text = "TRADITION • FLAVOR • HERITAGE • 100% NATURAL • PRIDE OF BIHAR • HANDCRAFTED SINCE 2026 •";
   const items = Array(4).fill(text); // Repeat to ensure continuous scroll
 
   return (

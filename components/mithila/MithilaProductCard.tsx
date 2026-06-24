@@ -11,6 +11,7 @@ interface Product {
   price: string;
   weight: string;
   flavor: string;
+  image: string;
 }
 
 interface Props {
@@ -44,14 +45,14 @@ export function MithilaProductCard({ product, index }: Props) {
               className="w-[85%] h-[85%] relative border-4 border-transparent"
               style={{ clipPath: `url(#lotus-clip-${index})` }}
             >
-              <div className="absolute inset-0 bg-mithila-ochre opacity-20"></div>
-              {/* Note: The user asked to use a placeholder and include the prompt. Since we don't have generated images, we will use an empty div with the prompt. */}
-              <div 
-                className="w-full h-full flex items-center justify-center p-4 text-center bg-mithila-ivory border-2 border-mithila-ink"
-                data-gen-prompt={`Mithila painting style product shot, ${product.name} in a handpainted clay bowl with lotus flowers and peacock feathers arranged around it, flat Madhubani art style, deep crimson and gold palette, bold black outlines, no photography realism, illustrated folk art, Bihar traditional art, white background`}
-              >
-                <span className="font-subheading text-xs text-mithila-ink italic">Image Placeholder<br/>(See prompt)</span>
-              </div>
+              <div className="absolute inset-0 bg-mithila-ochre opacity-20 z-10 pointer-events-none"></div>
+              <Image 
+                src={product.image} 
+                alt={product.name} 
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover"
+              />
             </div>
             
             {/* Decorative border animation on hover */}

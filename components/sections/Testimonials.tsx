@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 export function Testimonials() {
@@ -9,11 +8,11 @@ export function Testimonials() {
   const testimonials = [
     {
       text: "The Chaat Masala flavor transported me straight to the bazaars of Patna. Never tasted makhana so crisp and authentic.",
-      author: "RAJESH KUMAR"
+      author: "AARAV SINGH"
     },
     {
       text: "A truly royal experience. The packaging itself is a work of art, but the Himalayan Salt makhana is the real treasure inside.",
-      author: "ANANYA SINGH"
+      author: "AARADHYA SINGH"
     }
   ];
 
