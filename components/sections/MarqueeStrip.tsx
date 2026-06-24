@@ -1,12 +1,10 @@
 'use client';
 
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 import { MithilaFish } from '../mithila/MithilaFish';
 import { MithilaLotus } from '../mithila/MithilaLotus';
 
 export function MarqueeStrip() {
-  const prefersReducedMotion = useReducedMotion();
   const categories = [
     "Classic Roasted Makhana", 
     "Himalayan Salt", 
@@ -21,12 +19,27 @@ export function MarqueeStrip() {
 
   return (
     <div className="w-full bg-mithila-crimson text-mithila-ivory overflow-hidden py-6 border-y-4 border-mithila-ink relative z-20">
-      <motion.div
-        className="flex whitespace-nowrap items-center"
-        animate={prefersReducedMotion ? {} : { x: ["0%", "-50%"] }}
-        transition={{ ease: "linear" as const, duration: 30, repeat: Infinity }}
-        style={{ display: "flex", width: "max-content" }}
-      >
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes marquee-strip {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-marquee-strip {
+            animation: none !important;
+            transform: none !important;
+          }
+        }
+        .animate-marquee-strip {
+          animation: marquee-strip 30s linear infinite;
+          display: flex;
+          width: max-content;
+        }
+        .animate-marquee-strip:hover {
+          animation-play-state: paused;
+        }
+      `}} />
+      <div className="flex whitespace-nowrap items-center animate-marquee-strip">
         {items.map((item, idx) => {
           const Icon = idx % 2 === 0 ? MithilaFish : MithilaLotus;
           
@@ -41,7 +54,7 @@ export function MarqueeStrip() {
             </React.Fragment>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   );
 }

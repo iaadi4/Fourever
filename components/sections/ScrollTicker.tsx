@@ -1,30 +1,45 @@
-'use client';
-
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 import { MithilaPeacock } from '../mithila/MithilaPeacock';
 
 export function ScrollTicker() {
-  const prefersReducedMotion = useReducedMotion();
   const text = "TRADITION • FLAVOR • HERITAGE • 100% NATURAL • PRIDE OF BIHAR • HANDCRAFTED SINCE 2026 •";
-  const items = Array(4).fill(text); // Repeat to ensure continuous scroll
+  const items = Array(4).fill(text);
 
   return (
     <div className="w-full bg-mithila-crimson text-mithila-ivory overflow-hidden py-2 border-b-[3px] border-mithila-ink">
-      <motion.div
-        className="flex whitespace-nowrap items-center"
-        animate={prefersReducedMotion ? {} : { x: ["0%", "-50%"] }}
-        transition={{ ease: "linear" as const, duration: 20, repeat: Infinity }}
-        whileHover={prefersReducedMotion ? {} : { animationPlayState: "paused" }} // Wait, Framer Motion doesn't use animationPlayState this way, we just let it run or need a more complex setup for pause. Since it's simple, let's omit pause on hover or just use CSS animation for that. Let's stick to Framer Motion without pause, or use standard CSS for ticker pause. Let's use CSS for hover pause.
-        style={prefersReducedMotion ? {} : { display: "flex", width: "max-content" }}
-      >
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes scroll-ticker {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll-ticker {
+            animation: none !important;
+            transform: none !important;
+          }
+        }
+        .animate-scroll-ticker {
+          animation: scroll-ticker 20s linear infinite;
+          display: flex;
+          width: max-content;
+        }
+        .animate-scroll-ticker:hover {
+          animation-play-state: paused;
+        }
+      `}} />
+      <div className="flex whitespace-nowrap items-center animate-scroll-ticker">
         {items.map((item, idx) => (
           <React.Fragment key={idx}>
             <span className="font-accent text-sm md:text-base tracking-widest px-4">{item}</span>
-            <MithilaPeacock className="w-6 h-6 mx-2 shrink-0" color="var(--color-mithila-ivory)" outlineColor="var(--color-mithila-ink)" />
+            <MithilaPeacock 
+              className="w-6 h-6 mx-2 shrink-0" 
+              color="var(--color-mithila-ivory)" 
+              outlineColor="var(--color-mithila-ink)" 
+              style={{ width: '24px', height: '24px' }} 
+            />
           </React.Fragment>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

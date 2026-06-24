@@ -14,6 +14,9 @@ export function Nav() {
       if (window.scrollY > 80) setScrolled(true);
       else setScrolled(false);
     };
+    
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

@@ -141,4 +141,8 @@
   html {
     @apply font-body;
   }
+  svg:not([width]):not([height]) {
+    width: 100%;
+    height: 100%;
+  }
 }
