@@ -2,11 +2,11 @@ import React from 'react';
 import { MithilaPeacock } from '../mithila/MithilaPeacock';
 
 export function ScrollTicker() {
-  const text = "TRADITION • FLAVOR • HERITAGE • 100% NATURAL • PRIDE OF BIHAR • HANDCRAFTED SINCE 2026 •";
+  const text = "PREMIUM MAKHANA • ROASTED FOXNUTS • HERITAGE MAKHANA • 100% NATURAL • PRIDE OF BIHAR • HANDCRAFTED MAKHANA SINCE 2026 •";
   const items = Array(4).fill(text);
 
   return (
-    <div className="w-full bg-mithila-crimson text-mithila-ivory overflow-hidden py-2 border-b-[3px] border-mithila-ink">
+    <div className="w-full bg-mithila-crimson text-mithila-ivory overflow-hidden py-2 border-b-[3px] border-mithila-ink" role="marquee" aria-label="Fourever Makhana - Premium roasted makhana foxnuts from Bihar">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes scroll-ticker {
           0% { transform: translateX(0); }

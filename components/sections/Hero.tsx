@@ -29,12 +29,19 @@ export function Hero() {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-mithila-ivory pt-20 overflow-hidden flex flex-col lg:flex-row">
+    <section
+      ref={containerRef}
+      id="hero"
+      aria-label="Fourever Makhana - Premium Roasted Foxnuts from Bihar"
+      className="relative min-h-screen bg-mithila-ivory pt-20 overflow-hidden flex flex-col lg:flex-row"
+    >
       <motion.div 
         className="w-full lg:w-[60%] h-[60vh] lg:h-auto relative border-b-4 lg:border-b-0 lg:border-r-4 border-mithila-ink"
         style={prefersReducedMotion ? {} : { y }}
+        role="img"
+        aria-label="Mithila folk art illustration depicting traditional makhana harvesting scene with lotus ponds, women harvesters, fish, and Bihar heritage motifs"
       >
-        <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1000 1000">
+        <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1000 1000" aria-hidden="true">
           <defs>
             <pattern id="dot-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
               <circle cx="10" cy="10" r="1.5" fill="var(--color-mithila-ochre)" opacity="0.4" />
@@ -89,25 +96,25 @@ export function Hero() {
         </motion.span>
         
         <motion.h1 variants={textVariants} className="font-display text-5xl lg:text-7xl text-mithila-ink leading-[1.1] mb-6">
-          Where Ancient Lakes Meet Ancient Craft
+          Premium Roasted Makhana — Where Ancient Lakes Meet Ancient Craft
         </motion.h1>
         
         <motion.p variants={textVariants} className="font-body text-lg lg:text-xl text-mithila-ink/80 leading-relaxed mb-10 max-w-md">
-          Hand-harvested from the lotus ponds of Mithila. Roasted over wood fires.
+          Hand-harvested makhana (foxnuts) from the lotus ponds of Mithila, Bihar. Wood-fire roasted. 100% natural with zero preservatives.
         </motion.p>
         
         <motion.div variants={textVariants} className="flex flex-wrap gap-4 mb-16">
-          <button className="bg-mithila-crimson text-mithila-ivory px-8 py-4 font-accent uppercase tracking-wider hover:bg-mithila-ink transition-colors border-2 border-mithila-ink">
+          <a href="#collection" className="bg-mithila-crimson text-mithila-ivory px-8 py-4 font-accent uppercase tracking-wider hover:bg-mithila-ink transition-colors border-2 border-mithila-ink" aria-label="Browse our premium makhana collection">
             Explore Collection
-          </button>
-          <button className="bg-transparent text-mithila-ink px-8 py-4 font-accent uppercase tracking-wider hover:bg-mithila-ochre hover:text-mithila-ivory transition-colors border-2 border-mithila-ink">
+          </a>
+          <a href="#heritage" className="bg-transparent text-mithila-ink px-8 py-4 font-accent uppercase tracking-wider hover:bg-mithila-ochre hover:text-mithila-ivory transition-colors border-2 border-mithila-ink" aria-label="Learn about our makhana heritage story">
             Our Story
-          </button>
+          </a>
         </motion.div>
 
         <motion.div variants={textVariants} className="grid grid-cols-2 gap-4">
           <MithilaBorder variant="lotus" containerClassName="w-full" className="p-3 text-center flex items-center justify-center h-full">
-            <span className="font-subheading text-sm font-bold">100% Natural</span>
+            <span className="font-subheading text-sm font-bold">100% Natural Makhana</span>
           </MithilaBorder>
           <MithilaBorder variant="peacock" containerClassName="w-full" className="p-3 text-center flex items-center justify-center h-full">
             <span className="font-subheading text-sm font-bold">Bihar GI Heritage</span>

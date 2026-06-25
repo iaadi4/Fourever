@@ -26,12 +26,12 @@ export function MithilaProductCard({ product, index }: Props) {
   };
 
   return (
-    <motion.div variants={itemVariants} className="group h-full cursor-pointer">
+    <motion.article variants={itemVariants} className="group h-full cursor-pointer" role="listitem" itemScope itemType="https://schema.org/Product">
       <div className="h-full transition-transform duration-500 group-hover:-translate-y-2">
         <MithilaBorder variant="peacock" className="flex flex-col h-full bg-mithila-ivory group-hover:shadow-[8px_8px_0_0_var(--color-mithila-ink)] transition-shadow duration-300">
           
           <div className="relative w-full aspect-square mb-6 flex items-center justify-center bg-mithila-ochre/10 overflow-hidden">
-            <svg width="0" height="0" className="absolute">
+            <svg width="0" height="0" className="absolute" aria-hidden="true">
               <clipPath id={`lotus-clip-${index}`} clipPathUnits="objectBoundingBox">
                 <path d="M0.5,0 C0.8,0.2 1,0.5 0.5,1 C0,0.5 0.2,0.2 0.5,0 Z" />
               </clipPath>
@@ -41,43 +41,47 @@ export function MithilaProductCard({ product, index }: Props) {
               className="w-[85%] h-[85%] relative border-4 border-transparent"
               style={{ clipPath: `url(#lotus-clip-${index})` }}
             >
-              <div className="absolute inset-0 bg-mithila-ochre opacity-20 z-10 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-mithila-ochre opacity-20 z-10 pointer-events-none" aria-hidden="true"></div>
               <Image 
                 src={product.image} 
-                alt={product.name} 
+                alt={`${product.name} - Buy premium ${product.name.toLowerCase()} online from Fourever Makhana | ${product.weight} pack at ${product.price}`}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover"
+                itemProp="image"
+                loading={index < 3 ? "eager" : "lazy"}
               />
             </div>
             
-            <div className="absolute inset-0 border-2 border-mithila-gold opacity-0 group-hover:opacity-100 group-hover:rotate-[360deg] transition-all duration-[10s] ease-linear pointer-events-none rounded-full scale-110"></div>
+            <div className="absolute inset-0 border-2 border-mithila-gold opacity-0 group-hover:opacity-100 group-hover:rotate-[360deg] transition-all duration-[10s] ease-linear pointer-events-none rounded-full scale-110" aria-hidden="true"></div>
           </div>
 
           <div className="flex flex-col flex-grow items-center text-center px-2">
-            <h3 className="font-accent text-base md:text-xl lg:text-2xl text-mithila-ink mb-1 md:mb-2 uppercase tracking-wide line-clamp-2 md:line-clamp-none">
+            <h3 className="font-accent text-base md:text-xl lg:text-2xl text-mithila-ink mb-1 md:mb-2 uppercase tracking-wide line-clamp-2 md:line-clamp-none" itemProp="name">
               {product.name}
             </h3>
             
-            <div className="font-subheading text-mithila-ochre italic text-xs md:text-sm mb-2 md:mb-4 min-h-[32px] md:min-h-[40px] leading-tight line-clamp-2 md:line-clamp-none">
+            <div className="font-subheading text-mithila-ochre italic text-xs md:text-sm mb-2 md:mb-4 min-h-[32px] md:min-h-[40px] leading-tight line-clamp-2 md:line-clamp-none" itemProp="description">
               {product.flavor}
             </div>
             
-            <div className="mt-auto w-full">
+            <div className="mt-auto w-full" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+              <meta itemProp="priceCurrency" content="INR" />
+              <meta itemProp="availability" content="https://schema.org/InStock" />
               <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-3 md:mb-4 border-t-2 border-dashed border-mithila-ink/30 pt-2 md:pt-4 gap-1 md:gap-0">
                 <span className="font-body text-xs md:text-sm text-mithila-ink font-semibold">{product.weight}</span>
-                <span className="font-display text-lg md:text-2xl text-mithila-crimson font-bold leading-none">{product.price}</span>
+                <span className="font-display text-lg md:text-2xl text-mithila-crimson font-bold leading-none" itemProp="price" content={product.price.replace(/[₹,]/g, '')}>{product.price}</span>
               </div>
               
-              <button className="w-full relative group/btn overflow-hidden bg-transparent border-2 border-mithila-ink py-2 md:py-3 text-[10px] md:text-sm font-accent uppercase tracking-widest text-mithila-ink hover:text-mithila-ivory transition-colors">
+              <button className="w-full relative group/btn overflow-hidden bg-transparent border-2 border-mithila-ink py-2 md:py-3 text-[10px] md:text-sm font-accent uppercase tracking-widest text-mithila-ink hover:text-mithila-ivory transition-colors" aria-label={`Add ${product.name} to cart`}>
                 <span className="relative z-10">Add to Cart</span>
-                <div className="absolute inset-0 bg-mithila-ink translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 z-0"></div>
+                <div className="absolute inset-0 bg-mithila-ink translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 z-0" aria-hidden="true"></div>
               </button>
             </div>
           </div>
 
         </MithilaBorder>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

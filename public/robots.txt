@@ -1,0 +1,15 @@
+# Robots.txt for Fourever Makhana
+# https://fourevermakhana.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://fourevermakhana.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block unnecessary paths
+Disallow: /_next/static/
+Disallow: /api/

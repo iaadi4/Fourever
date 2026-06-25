@@ -7,7 +7,7 @@ export function CTA() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden border-b-[8px] border-mithila-gold">
+    <section id="order" aria-label="Order Premium Makhana Online - Buy Fourever Makhana" className="relative min-h-screen flex items-center justify-center overflow-hidden border-b-[8px] border-mithila-gold">
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -15,7 +15,7 @@ export function CTA() {
         }}
       ></div>
 
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0" aria-hidden="true">
         <motion.div
           animate={prefersReducedMotion ? {} : { rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" as const }}
@@ -33,7 +33,7 @@ export function CTA() {
           transition={{ duration: 0.8 }}
           className="font-display text-6xl md:text-8xl text-mithila-ivory mb-8 leading-tight"
         >
-          Your First Taste of <br/>Mithila Awaits.
+          Buy Premium Makhana Online — Your First Taste of <br/>Mithila Awaits.
         </motion.h2>
 
         <motion.p 
@@ -43,7 +43,7 @@ export function CTA() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="font-body text-2xl text-mithila-ivory/80 mb-16 max-w-2xl"
         >
-          Join the legacy. Experience the true crunch of authentic, wood-fire roasted foxnuts from the heart of Bihar.
+          Join the legacy. Experience the true crunch of authentic, wood-fire roasted makhana foxnuts from the heart of Bihar. Order Fourever Makhana today.
         </motion.p>
 
         <motion.div 
@@ -53,12 +53,12 @@ export function CTA() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
         >
-          <button className="bg-mithila-gold text-mithila-ink font-accent uppercase px-12 py-5 text-xl tracking-wider hover:bg-mithila-ivory transition-colors border-2 border-mithila-gold hover:border-mithila-ivory">
-            Shop the Collection
-          </button>
-          <button className="bg-transparent text-mithila-ivory font-accent uppercase px-12 py-5 text-xl tracking-wider hover:bg-mithila-ink transition-colors border-2 border-mithila-ivory">
+          <a href="#collection" className="bg-mithila-gold text-mithila-ink font-accent uppercase px-12 py-5 text-xl tracking-wider hover:bg-mithila-ivory transition-colors border-2 border-mithila-gold hover:border-mithila-ivory text-center" aria-label="Shop our makhana collection now">
+            Shop Makhana Collection
+          </a>
+          <a href="#heritage" className="bg-transparent text-mithila-ivory font-accent uppercase px-12 py-5 text-xl tracking-wider hover:bg-mithila-ink transition-colors border-2 border-mithila-ivory text-center" aria-label="Follow our makhana heritage story">
             Follow Our Story
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

@@ -7,7 +7,7 @@ const gemPattern = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 const scallopPattern = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8'%3E%3Cpath d='M0 8Q4 0 8 8Q12 0 16 8' fill='none' stroke='%23D4A017' stroke-width='1.2'/%3E%3C/svg%3E")`;
 
 export function StorytellingStrip() {
-  const text = "We didn't start a snack company. We started a preservation. Of a crop. Of an art. Of a way of life that the lotus ponds of Bihar have held sacred for two thousand years. Every pack of Fourever Makhana is harvested by the same families who painted the walls of their mud homes with the same lotus, the same peacock, the same fish — and we wanted you to see that beauty too.";
+  const text = "We didn't start a makhana snack company. We started a preservation. Of a crop. Of an art. Of a way of life that the lotus ponds of Bihar have held sacred for two thousand years. Every pack of Fourever Makhana foxnuts is harvested by the same families who painted the walls of their mud homes with the same lotus, the same peacock, the same fish — and we wanted you to see that beauty in every makhana you eat.";
   const words = text.split(" ");
 
   const containerVariants = {
@@ -23,8 +23,8 @@ export function StorytellingStrip() {
   };
 
   return (
-    <section className="relative py-32 bg-mithila-ink overflow-hidden flex items-center justify-center">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+    <section id="our-story" aria-label="The Fourever Makhana Story - Our Heritage from Bihar" className="relative py-32 bg-mithila-ink overflow-hidden flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <span className="font-display text-[25vw] leading-none text-mithila-crimson opacity-5 whitespace-nowrap">
           BIHAR
         </span>
@@ -80,7 +80,7 @@ export function StorytellingStrip() {
                         transition={{ delay: 1.5, duration: 1 }}
                         viewport={{ once: true }}
                       >
-                        — Pranav and Sapna singh, Fourever, Estb 2026
+                        — Pranav and Sapna Singh, Fourever Makhana, Estb 2026
                       </motion.p>
                     </div>
                   </div>

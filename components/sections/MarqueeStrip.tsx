@@ -7,18 +7,18 @@ import { MithilaLotus } from '../mithila/MithilaLotus';
 export function MarqueeStrip() {
   const categories = [
     "Classic Roasted Makhana", 
-    "Himalayan Salt", 
-    "Turmeric & Black Pepper", 
-    "Chaat Masala", 
-    "Rose Cardamom", 
-    "Assorted Nut Mix", 
-    "Premium Gift Boxes"
+    "Himalayan Salt Makhana", 
+    "Turmeric & Black Pepper Makhana", 
+    "Chaat Masala Makhana", 
+    "Rose Cardamom Makhana", 
+    "Premium Foxnut Gift Boxes", 
+    "Buy Makhana Online"
   ];
   
   const items = [...categories, ...categories, ...categories];
 
   return (
-    <div className="w-full bg-mithila-crimson text-mithila-ivory overflow-hidden py-6 border-y-4 border-mithila-ink relative z-20">
+    <div className="w-full bg-mithila-crimson text-mithila-ivory overflow-hidden py-6 border-y-4 border-mithila-ink relative z-20" role="marquee" aria-label="Fourever Makhana product categories - Shop roasted makhana flavors online">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes marquee-strip {
           0% { transform: translateX(0); }
@@ -48,7 +48,7 @@ export function MarqueeStrip() {
               <span className="font-display italic text-3xl md:text-4xl tracking-wide px-8">
                 {item}
               </span>
-              <div className="w-10 h-10 flex items-center justify-center shrink-0 opacity-80">
+              <div className="w-10 h-10 flex items-center justify-center shrink-0 opacity-80" aria-hidden="true">
                 <Icon color="var(--color-mithila-gold)" outlineColor="var(--color-mithila-ivory)" />
               </div>
             </React.Fragment>
